@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>RT Quiz (Firebase)</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+  <script type="module" src="firebase-config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <h1>Procvičování zkoušek RT</h1>
+
+  <div id="menu">
+    <label for="category">Téma:</label>
+    <select id="category">
+      <option value="hromosvody">Hromosvody</option>
+      <option value="vseobecne">Všeobecné</option>
+      <option value="ndn">Ochrana před NDN</option>
+      <option value="obecne">Obecné předpisy</option>
+    </select>
+    <button onclick="startQuiz()">Začít test</button>
+    <button onclick="showForm()">Přidat otázku</button>
+  </div>
+
+  <div id="quiz" class="hidden">
+    <div id="question"></div>
+    <div id="answers"></div>
+    <button onclick="nextQuestion()">Další otázka</button>
+  </div>
+
+  <div id="form" class="hidden">
+    <h2>Přidat otázku</h2>
+    <label>Otázka:<br><textarea id="newQuestion"></textarea></label><br>
+    <label>Odpověď A: <input type="text" id="ansA"></label><br>
+    <label>Odpověď B: <input type="text" id="ansB"></label><br>
+    <label>Odpověď C: <input type="text" id="ansC"></label><br>
+    <label>Odpověď D: <input type="text" id="ansD"></label><br>
+    <label>Správná odpověď:
+      <select id="correct">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+      </select>
+    </label><br>
+    <button onclick="saveQuestion()">Uložit otázku</button>
+    <button onclick="hideForm()">Zpět</button>
+  </div>
+</body>
+</html>
